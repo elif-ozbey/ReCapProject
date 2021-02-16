@@ -18,10 +18,19 @@ namespace ConsoleUI
 
             CarManager carManager = new CarManager(new EfCarDal()); //bu inmemory calisacagim demek
 
-            foreach (var car in carManager.GetCarDetailDtos())
+            var result = carManager.GetCarDetailDtos();
+            if (result.Success == true)
             {
-                Console.WriteLine(car.Id + " " + car.BrandName + " " + car.ColorName + " " + car.Description);
 
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine(car.Id + " " + car.BrandName + " " + car.ColorName + " " + car.Description);
+
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
             }
         }
               private static void BrandTest()
