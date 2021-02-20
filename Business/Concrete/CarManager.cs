@@ -41,7 +41,7 @@ namespace Business.Concrete
 
         public IDataResult<List<CarDetailDto>> GetCarDetailDtos()
         {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetProductDetails());
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
 
        public IResult Add(Car car)

@@ -5,11 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-
 namespace DataAccess.Abstract
 {
-    public interface ICarDal : IEntityRepository<Car>
+   public interface IRentalDal: IEntityRepository<Rental>
     {
-        List<CarDetailDto> GetCarDetails();
+        List<RentalDetailDto> GetRentalDetails();
+        List<RentalDetailDto> GetByCustomerRentalDetails(int id);
     }
+    
 }
