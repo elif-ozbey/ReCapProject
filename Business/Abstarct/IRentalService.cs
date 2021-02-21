@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,12 @@ namespace Business.Abstarct
 {
     public interface IRentalService 
     {
-       List<Rental> GetAll();
-        Rental GetById(int id);
-        void Add(Rental rental);
-        void Delete(Rental rental);
-        void Update(Rental rental);
-        List<RentalDetailDto> GetRentalDetails();
-        List<RentalDetailDto> GetByCustomerRentalDetails(int id);
+       IDataResult <List<Rental>> GetAll();
+        IDataResult<Rental> GetById(int id);
+        IResult Add(Rental rental);
+        IResult Delete(Rental rental);
+        IResult Update(Rental rental);
+        IDataResult<List<RentalDetailDto>> GetRentalDetails();
+       IDataResult<List<RentalDetailDto>> GetByCustomerRentalDetails(int id);
     }
 }
