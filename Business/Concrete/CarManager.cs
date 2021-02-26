@@ -1,11 +1,15 @@
 ﻿using Business.Abstarct;
 using Business.Contants;
+using Business.Validationrules.FluentValidation;
+using Core.CrossCutingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Business.Concrete
@@ -43,13 +47,11 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
-
+      
+       
        public IResult Add(Car car)
         {
-            if (car.Description.Length<2)
-            {
-                return new ErrorResult(Messages.CarDescriptionInvalid);
-            }
+            ValidationTool.Validate(new CarValidator(), car);
             _carDal.Add(car);
            
             return new SuccessResult(Messages.CarAdded);
