@@ -20,33 +20,28 @@ namespace ConsoleUI
 
             // RentalDetail();
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            for (int i = 0; i < 3 ; i++)
-            {
-
-
-
-
-
-                foreach (var item in rentalManager.GetByCustomerRentalDetails(i))
-                {
-                    Console.WriteLine(item.CustomerId + " " + item.RentDate);
-
-                }
-            }
+           
         }
-            
-        
-        
-        private static void RentalDetail()
-        {
-            RentalManager rentalManager = new RentalManager(new EfRentalDal()); //bu inmemory calisacagim demek
 
-          
-            foreach (var id in rentalManager.GetRentalDetails())
-            {
-                Console.WriteLine(id.RentDate);
-            }
-        }
+        //private static void CustomerRentalDetails(RentalManager rentalManager)
+        //{
+        //    for (int i = 0; i < 3; i++)
+        //    {
+
+
+
+
+
+        //        foreach (var item in rentalManager.GetByCustomerRentalDetails(i))
+        //        {
+        //            Console.WriteLine(item.CustomerId + " " + item.RentDate);
+
+        //        }
+        //    }
+        //}
+
+
+
 
         private static void CarMenegerTest()
         {
